@@ -1,2 +1,2 @@
-# tap-spendings
+# spendings
 Web application using React, NodeJS, GraphQL and Postgres
