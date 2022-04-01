@@ -2,13 +2,13 @@
 
 module.exports = {
   // Query: {
-  //   getUser: (email) => User.
+  //   getUser: (email) => User
   // },
-  // Mutation: {
-  //   registerUser: ({ email, name, lastName, password }) => {
-  //     console.log('email ->', email)
-  //     console.log('name ->', name)
-  //     console.log('lastName ->', lastName)
-  //   }
-  // }
+  Mutation: {
+    registerUser: ({ email, name, lastName, password }) => {
+      console.log('email ->', email)
+      console.log('name ->', name)
+      console.log('lastName ->', lastName)
+    }
+  }
 }

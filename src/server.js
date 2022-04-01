@@ -22,8 +22,8 @@ const startProcess = async () => {
   }
 
   // const resultadoCreate = await User.create({
-  //   // username: 'Allan Amaral',
-  //   email: 101
+  //   username: 'Allan Amaral',
+  //   email: 'allan.depontes@gmail.com'
   //   // descricao: 'Um mouse USB bonitão'
   // })
   // console.log(resultadoCreate)
@@ -35,7 +35,7 @@ const startProcess = async () => {
 
   const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
     // schema: await buildSchema({
     //   resolvers: [UserResolver]
     // })
