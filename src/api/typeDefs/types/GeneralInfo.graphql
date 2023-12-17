@@ -1,0 +1,18 @@
+type GeneralInfoType {
+  id: String
+  firstname: String
+  lastname: String
+  email: String
+  spendTypes: [String]
+  currency: String
+  entries: [EntryType]
+}
+
+type EntryType {
+  id: String
+  createdAt: String
+  date: String
+  description: String
+  spendType: String
+  value: Float
+}

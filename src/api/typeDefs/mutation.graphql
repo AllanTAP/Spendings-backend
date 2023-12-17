@@ -1,0 +1,7 @@
+type Mutation {
+  setEntry(type: String!, value: Float!, description: String, date: String): Boolean
+  deleteEntry(entryIndex: Int!): Boolean
+  setSpendType(name: String!): Boolean
+  deleteSpendType(id: String!): Boolean
+  setUserCurrency(code: CurrencyCode!): Boolean
+}

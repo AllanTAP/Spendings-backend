@@ -1,0 +1,4 @@
+type Query {
+  getGeneralInfo: GeneralInfoType
+  getUserCurrency: String
+}
