@@ -1,2 +1,3 @@
 # spendings
-Web application using React, NodeJS, GraphQL and Postgres
+
+Web API using NodeJS, GraphQL and Dynamodb
