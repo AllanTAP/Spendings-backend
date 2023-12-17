@@ -5,25 +5,40 @@
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/server.js"
+    "dev": "nodemon --ext js,graphql ./src/server.js",
+    "start": "nodemon src/server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "keywords": [],
   "author": "AllanTAP",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
+    "@apollo/server": "^4.9.5",
+    "@aws-sdk/client-dynamodb": "^3.465.0",
+    "@aws-sdk/lib-dynamodb": "^3.465.0",
+    "@graphql-tools/load-files": "^7.0.0",
     "apollo-server": "^3.1.2",
     "apollo-server-express": "^3.1.2",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "graphql": "^15.5.1",
+    "graphql": "^16.8.1",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.6.5"
+    "sequelize": "^6.6.5",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "@graphql-eslint/eslint-plugin": "^3.20.1",
+    "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "nodemon": "^3.0.2",
+    "prettier": "^3.1.0"
   }
 }
