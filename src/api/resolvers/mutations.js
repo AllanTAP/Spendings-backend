@@ -1,10 +1,17 @@
 import { setUserCurrency } from '../../../domain/Currency.js'
-import { deleteEntry, setEntry } from '../../../domain/Entries.js'
-import { setSpendType } from '../../../domain/SpendTypes.js'
+import {
+  deletePaymentEntry,
+  setPaymentEntry,
+  setPaymentType,
+} from '../../../domain/Payment.js'
+import { deleteSpendEntry, setSpendEntry, setSpendType } from '../../../domain/Spend.js'
 
 export default {
-  setEntry: setEntry,
-  deleteEntry: deleteEntry,
-  setSpendType,
   setUserCurrency,
+  setSpendType,
+  setSpendEntry,
+  deleteSpendEntry,
+  setPaymentType,
+  setPaymentEntry,
+  deletePaymentEntry,
 }

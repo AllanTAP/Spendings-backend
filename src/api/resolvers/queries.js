@@ -1,7 +1,9 @@
 import { getUserCurrency } from '../../../domain/Currency.js'
-import { getEntries } from '../../../domain/Entries.js'
+import { getPaymentEntries } from '../../../domain/Payment.js'
+import { getSpendEntries } from '../../../domain/Spend.js'
 
 export default {
-  getGeneralInfo: getEntries,
   getUserCurrency,
+  getSpendEntries,
+  getPaymentEntries,
 }

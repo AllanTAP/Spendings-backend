@@ -1,7 +1,19 @@
 type Mutation {
-  setEntry(type: String!, value: Float!, description: String, date: String): Boolean
-  deleteEntry(entryIndex: Int!): Boolean
-  setSpendType(name: String!): Boolean
-  deleteSpendType(id: String!): Boolean
+  # General
   setUserCurrency(code: CurrencyCode!): Boolean
+  # ----------------
+  # Spend
+  setSpendType(name: String!): Boolean
+  setSpendEntry(type: String!, value: Float!, description: String, date: String): Boolean
+  deleteSpendEntry(entryIndex: Int!): Boolean
+  # ----------------
+  # Payment
+  setPaymentType(name: String!): Boolean
+  setPaymentEntry(
+    type: String!
+    value: Float!
+    description: String
+    date: String
+  ): Boolean
+  deletePaymentEntry(entryIndex: Int!): Boolean
 }

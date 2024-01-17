@@ -1,4 +1,10 @@
 type Query {
-  getGeneralInfo: GeneralInfoType
+  # General
   getUserCurrency: String
+  # ----------------
+  # Spend
+  getSpendEntries: GeneralInfoType
+  # ----------------
+  # Payment
+  getPaymentEntries: PaymentInfo
 }

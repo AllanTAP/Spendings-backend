@@ -7,11 +7,11 @@ const docClient = DynamoDBDocumentClient.from(client)
 const tableName = process.env.TABLE_NAME
 const id = process.env.TABLE_ITEM_ID
 
-export async function insertSpendType(name) {
+export async function insertPaymentType(name) {
   const command = new UpdateCommand({
     TableName: tableName,
     Key: { id },
-    UpdateExpression: 'ADD spendTypes :newEntry',
+    UpdateExpression: 'ADD paymentTypes :newEntry',
     ExpressionAttributeValues: {
       ':newEntry': new Set([name.trim()]),
     },
@@ -27,28 +27,31 @@ export async function insertSpendType(name) {
   }
 }
 
-export async function listSpends() {
+export async function listPayments() {
   const command = new GetCommand({
     TableName: tableName,
     Key: {
       id: id,
     },
-    ProjectionExpression: 'spendTypes, entries',
+    ProjectionExpression: 'paymentTypes, paymentEntries',
   })
 
   const response = await docClient.send(command)
 
+  console.log('\n\n **** Payment ****\n', response?.Item)
+
   return response
 }
 
-export async function insertSpendEntry(valuesJson) {
+export async function insertPaymentEntry(valuesJson) {
+  console.log('here', valuesJson)
   const command = new UpdateCommand({
     TableName: tableName,
     Key: { id },
     UpdateExpression:
-      'SET #entry = list_append(if_not_exists(#entry, :empty_list), :newObj)',
+      'SET #paymentEntry = list_append(if_not_exists(#paymentEntry, :empty_list), :newObj)',
     ExpressionAttributeNames: {
-      '#entry': 'entries',
+      '#paymentEntry': 'paymentEntries',
     },
     ExpressionAttributeValues: {
       ':newObj': [valuesJson],
@@ -60,19 +63,22 @@ export async function insertSpendEntry(valuesJson) {
   try {
     const response = await docClient.send(command)
 
+    console.log('response ->', response)
+
     return response
   } catch (error) {
+    console.log(error)
     throw new Error('=(', error)
   }
 }
 
-export async function removeSpendEntry(entryIndex) {
+export async function removePaymentEntry(entryIndex) {
   const command = new UpdateCommand({
     TableName: tableName,
     Key: { id },
-    UpdateExpression: `REMOVE #entry[${entryIndex}]`,
+    UpdateExpression: `REMOVE #paymentEntry[${entryIndex}]`,
     ExpressionAttributeNames: {
-      '#entry': 'entries',
+      '#paymentEntry': 'paymentEntries',
     },
     ReturnValues: 'UPDATED_NEW',
   })

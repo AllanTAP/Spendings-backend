@@ -1,0 +1,13 @@
+type PaymentInfo {
+  paymentTypes: [String]
+  paymentEntries: [PaymentType]
+}
+
+type PaymentType {
+  id: String
+  createdAt: String
+  date: String
+  description: String
+  paymentType: String
+  value: Float
+}
